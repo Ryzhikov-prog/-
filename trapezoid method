@@ -1,0 +1,26 @@
+using namespace std;
+
+double parabola(double x)
+{
+return sin(x);
+}
+
+double TrapezeIntegration ( double ( &func ) ( double), double bottomEdge, double topEdge, int stepCount)
+{
+double area, height, x ;
+int i;
+area=0;
+height = ( topEdge - bottomEdge )/ stepCount;
+for ( i=0; i < stepCount - 1 ; i++)
+{
+x = height * i + bottomEdge;
+area = area + (func(x)+ func(x+height)) * height/2;
+}
+return area;
+}
+int main() {
+double areatrapeze;
+areatrapeze = TrapezeIntegration( parabola, 0, 5, 10000000);
+cout « areatrapeze « endl;
+return 0;
+}
