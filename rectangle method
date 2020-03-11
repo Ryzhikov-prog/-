@@ -1,0 +1,29 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+double parabola(double x)
+{
+return x;
+}
+
+double RectangleIntegration ( double ( &func ) ( double), double bottomEdge, double topEdge, int stepCount)
+{
+double area, height, x ;
+int i;
+area=0;
+height = ( topEdge - bottomEdge )/ stepCount;
+for ( i=0; i < stepCount; i++)
+{
+x = height * i + bottomEdge;
+area = area + func(x)*height;
+}
+return area;
+}
+int main() {
+double areatriangle;
+areatriangle = RectangleIntegration( parabola, -78, 89, 10000000);
+cout « areatriangle « endl;
+return 0;
+}
